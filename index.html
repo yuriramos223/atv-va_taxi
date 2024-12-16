@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vai de Táxi</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <form action="#">
+            <fieldset>
+                <legend>Vai de Táxi</legend>
+                <p>
+                    <label for="distancia">
+                        Distância dos pontos:
+                    </label>
+                    <input type="text" id="distancia">
+                </p>
+                <p>
+                    <label for="bandeira">
+                        Bandeira:
+                    </label>
+                    <select name="bandeira" id="bandeira">
+                        <option value="1">
+                            1
+                        </option>
+                        <option value="2">
+                            2
+                        </option>
+                    </select>
+                </p>
+                <p>
+                    <label for="taximento">
+                        Valor do Taximento:
+                    </label>
+                    <input type="number" id="taximento">
+                </p>
+                <p>
+                    <label for="desconto">
+                        Desconto:
+                    </label>
+                    <input type="number" id="desconto">
+                </p>
+                <p>
+                    <input type="submit" value="Enviar" id="btn-enviar">
+                </p>
+                <p>
+                    <input type="reset" value="Resetar">
+                </p>
+            </fieldset>
+        </form>
+        <div id="mensagem"></div>
+    </main>
+    <script>
+        let my_element = document.getElementById("btn-enviar");
+        my_element.addEventListener("click", function (e) {
+
+            let valor = 0;
+            let bandeira = document.getElementById("bandeira").value;
+            let distancia = parseFloat(document.getElementById("distancia").value);
+            let mensagem = document.getElementById("mensagem");
+
+            if(bandeira == "1"){
+                valor = 3.2 + distancia * 1.8;
+                console.log(valor)
+            }
+            else{
+                valor = 3.2 + distancia * 2.34;
+                console.log(valor);
+            }
+            mensagem.innerHTML = "Valor da corrida: R$" + valor;
+        });
+    </script>
+</body>
+</html>
